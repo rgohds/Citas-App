@@ -1,0 +1,14 @@
+{
+    "data": [
+    {
+      "id": 1000,
+      "nombre": "Rafael Luis",
+      "apellido": "Garza Ortega"      
+    },
+    {
+      "id": 1001,
+      "nombre": "Ricardo",
+      "apellido": "Esparza"      
+    }    
+  ]
+}
