@@ -6,7 +6,7 @@
                 <ng-template pTemplate="left">
                     <div class="my-2">
                         <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
-                        <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button>
+                        <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedInstructores()" [disabled]="!selectedInstructores || !selectedInstructores.length"></button>
                     </div>
                 </ng-template>
 
@@ -33,7 +33,7 @@
                         </th>
                         <th pSortableColumn="id">Identificador <p-sortIcon field="id"></p-sortIcon></th>
                         <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
-                        <th pSortableColumn="apellido">Apellido <p-sortIcon field="apellidos"></p-sortIcon></th>                        
+                        <th pSortableColumn="apellido">Apellidos <p-sortIcon field="apellido"></p-sortIcon></th>                        
                         <th></th>
                     </tr>
                 </ng-template>
@@ -51,12 +51,12 @@
                         </td>                                                
                         <td style="width:14%; min-width:10rem;">
                             <span class="p-column-title">Apellidos</span>
-                            {{instructor.apellidos}}
+                            {{instructor.apellido}}
                         </td>                     
                         <td>
                             <div class="flex">
-                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editInstructor(product)"></button>
-                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteInstructor(product)"></button>
+                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editInstructor(instructor)"></button>
+                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteInstructor(instructor)"></button>
                             </div>
                         </td>
                     </tr>

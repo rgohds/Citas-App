@@ -186,12 +186,14 @@ export class InstructorComponent implements OnInit {
     constructor(private instructorService: InstructorService, private messageService: MessageService) { }
 
     ngOnInit() {
-        this.instructorService.getInstructores().then(data => this.instructores = data);
+        //this.instructorService.getInstructores().then(data => this.instructores = data);
+
+        this.instructorService.getInstructores().subscribe(data => this.instructores = data);
 
         this.cols = [
-            { field: 'product', header: 'Product' },
+            { field: 'id', header: 'Id' },
             { field: 'nombre', header: 'Nombre' },
-            { field: 'apellidos', header: 'Apellidos' }
+            { field: 'apellido', header: 'Apellidos' }
         ];
         
     }
@@ -202,16 +204,16 @@ export class InstructorComponent implements OnInit {
         this.instructorDialog = true;
     }
 
-    deleteSelectedProducts() {
+    deleteSelectedInstructores() {
         this.deleteInstructoresDialog = true;
     }
 
-    editProduct(instructor: Instructor) {
+    editInstructor(instructor: Instructor) {
         this.instructor = { ...instructor };
         this.instructorDialog = true;
     }
 
-    deleteProduct(instructor: Instructor) {
+    deleteInstructor(instructor: Instructor) {
         this.deleteInstructorDialog = true;
         this.instructor = { ...instructor };
     }
@@ -240,8 +242,7 @@ export class InstructorComponent implements OnInit {
 
         if (this.instructor.nombre?.trim()) {
             if (this.instructor.id) {
-                // @ts-ignore
-                this.instructor.inventoryStatus = this.instructor.inventoryStatus.value ? this.instructor.inventoryStatus.value : this.product.inventoryStatus;
+                // @ts-ignore                
                 this.instructores[this.findIndexById(this.instructor.id)] = this.instructor;
                 this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Instructor Actualizado', life: 3000 });
             } else {
